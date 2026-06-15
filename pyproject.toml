@@ -1,23 +1,20 @@
 [project]
-name = "nonebot-plugin-template"
+name = "nonebot-plugin-ai-reply"
 version = "0.1.0"
-description = "插件描述"
+description = "基于AI模型的自动回复插件，支持通过@bot发送消息进行AI对话"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "owner", email = "owner@gmail.com" }]
 dependencies = [
   "httpx>=0.27.0,<1.0.0",
-  "nonebot-plugin-alconna>=0.60.0,<1.0.0",    # 跨平台命令解析拓展
-  "nonebot-plugin-apscheduler>=0.5.0,<1.0.0", # 定时任务
-  "nonebot-plugin-localstore>=0.7.4,<1.0.0",  # 存储文件
-  "nonebot-plugin-uninfo>=0.10.0,<1.0.0",     # 多平台用户信息获取
+  "nonebot-plugin-uninfo>=0.10.0,<1.0.0",
   "nonebot2>=2.5.0,<3.0.0",
 ]
 
 [project.urls]
-Homepage = "https://github.com/owner/nonebot-plugin-template"
-Issues = "https://github.com/owner/nonebot-plugin-template/issues"
-Repository = "https://github.com/owner/nonebot-plugin-template.git"
+Homepage = "https://github.com/owner/nonebot-plugin-ai-reply"
+Issues = "https://github.com/owner/nonebot-plugin-ai-reply/issues"
+Repository = "https://github.com/owner/nonebot-plugin-ai-reply.git"
 
 [dependency-groups]
 dev = [
@@ -51,8 +48,8 @@ tag = true
 
 [[tool.bumpversion.files]]
 filename = "uv.lock"
-search = "name = \"nonebot-plugin-template\"\nversion = \"{current_version}\""
-replace = "name = \"nonebot-plugin-template\"\nversion = \"{new_version}\""
+search = "name = \"nonebot-plugin-ai-reply\"\nversion = \"{current_version}\""
+replace = "name = \"nonebot-plugin-ai-reply\"\nversion = \"{new_version}\""
 
 [tool.coverage.report]
 exclude_lines = [
@@ -63,7 +60,7 @@ exclude_lines = [
 ]
 
 [tool.nonebot]
-plugins = ["nonebot_plugin_template"]
+plugins = ["nonebot_plugin_ai_reply"]
 
 [tool.poe.tasks]
 test = "pytest --cov=src --cov-report xml --junitxml=./junit.xml -n auto"
@@ -85,12 +82,12 @@ disableBytesTypePromotions = true
 
 [tool.pytest]
 addopts = [
-  "--import-mode=prepend", # 导入模式
-  "--strict-markers",      # 严格标记模式
-  "--tb=short",            # 简短的错误回溯
-  "-ra",                   # 显示所有测试结果摘要
-  "-s",                    # 显示打印信息
-  "-v",                    # 详细输出
+  "--import-mode=prepend",
+  "--strict-markers",
+  "--tb=short",
+  "-ra",
+  "-s",
+  "-v",
 ]
 pythonpath = ["src"]
 asyncio_mode = "auto"
@@ -104,29 +101,29 @@ line-ending = "lf"
 
 [tool.ruff.lint]
 select = [
-  "F",     # Pyflakes
-  "W",     # pycodestyle warnings
-  "E",     # pycodestyle errors
-  "I",     # isort
-  "UP",    # pyupgrade
-  "ASYNC", # flake8-async
-  "C4",    # flake8-comprehensions
-  "T10",   # flake8-debugger
-  "T20",   # flake8-print
-  "PYI",   # flake8-pyi
-  "PT",    # flake8-pytest-style
-  "Q",     # flake8-quotes
-  "TID",   # flake8-tidy-imports
-  "RUF",   # Ruff-specific rules
+  "F",
+  "W",
+  "E",
+  "I",
+  "UP",
+  "ASYNC",
+  "C4",
+  "T10",
+  "T20",
+  "PYI",
+  "PT",
+  "Q",
+  "TID",
+  "RUF",
 ]
 ignore = [
-  "E402",   # module-import-not-at-top-of-file
-  "UP037",  # quoted-annotation
-  "RUF001", # ambiguous-unicode-character-string
-  "RUF002", # ambiguous-unicode-character-docstring
-  "RUF003", # ambiguous-unicode-character-comment
-  "W191",   # indentation contains tabs
-  "TID252", # relative-import
+  "E402",
+  "UP037",
+  "RUF001",
+  "RUF002",
+  "RUF003",
+  "W191",
+  "TID252",
 ]
 
 [tool.ruff.lint.isort]

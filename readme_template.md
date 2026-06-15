@@ -9,13 +9,13 @@
 [![uv](https://img.shields.io/badge/package%20manager-uv-black?style=flat-square&logo=uv)](https://github.com/astral-sh/uv)
 <br/>
 [![ruff](https://img.shields.io/badge/code%20style-ruff-black?style=flat-square&logo=ruff)](https://github.com/astral-sh/ruff)
-[![pre-commit](https://results.pre-commit.ci/badge/github/{owner}/{plugin-name}/master.svg)](https://results.pre-commit.ci/latest/github/{owner}/{plugin-name}/master)
+[![pre-commit](https://results.pre-commit.ci/badge/github/{owner}/{plugin-name}/master.svg)](https://results.pre-commit.ci/latest/github/{owner}/{plugin-name})
 
 </div>
 
 ## 📖 介绍
 
-这里是插件的详细介绍部分
+基于AI模型的自动回复插件，支持通过@bot发送消息进行AI对话，支持自定义API地址、模型和系统提示词。
 
 ## 💿 安装
 
@@ -88,19 +88,24 @@
 
 ## ⚙️ 配置
 
-在 nonebot2 项目的`.env`文件中添加下表中的必填配置
+在 nonebot2 项目的`.env`文件中添加下表中的配置
 
 | 配置项  | 必填  | 默认值 |   说明   |
 | :-----: | :---: | :----: | :------: |
-| 配置项1 |  是   |   无   | 配置说明 |
-| 配置项2 |  否   |   无   | 配置说明 |
+| AI_API_KEY |  是   |   无   | AI服务的API密钥 |
+| AI_BASE_URL |  否   | https://api.openai.com/v1/chat/completions | AI接口地址 |
+| AI_MODEL |  否   | gpt-3.5-turbo | 使用的AI模型名称 |
+| AI_PROMPT |  否   | 你是一个友好的助手，帮助用户解答问题。 | 系统提示词，定义AI角色 |
 
 ## 🎉 使用
 ### 指令表
 | 指令  | 权限  | 需要@ | 范围  |   说明   |
 | :---: | :---: | :---: | :---: | :------: |
-| 指令1 | 主人  |  否   | 私聊  | 指令说明 |
-| 指令2 | 群员  |  是   | 群聊  | 指令说明 |
+| @bot + 消息 | 群员  |  是   | 群聊/私聊  | 发送消息进行AI对话 |
 
-### 🎨 效果图
-如果有效果图的话
+### 🎨 使用示例
+```
+@bot 你好，今天天气怎么样？
+@bot 帮我写一段Python代码
+@bot 解释一下量子计算
+```
